@@ -1,9 +1,17 @@
 {
   "name": "critic-mcp",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "A Model Context Protocol (MCP) server providing automated, read-only code review and vulnerability analysis using LLMs.",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/layermedya/Critic-MCP.git"
+  },
+  "homepage": "https://github.com/layermedya/Critic-MCP#readme",
+  "bugs": {
+    "url": "https://github.com/layermedya/Critic-MCP/issues"
+  },
   "bin": {
     "critic-mcp": "dist/index.js"
   },

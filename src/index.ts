@@ -25,7 +25,7 @@ if (process.argv.slice(2).includes('auth')) {
 
 const server = new Server({
   name: 'critic-mcp',
-  version: '0.3.0',
+  version: '1.0.0',
 }, {
   capabilities: {
     tools: {},
