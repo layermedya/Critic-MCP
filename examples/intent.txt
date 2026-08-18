@@ -1,0 +1,6 @@
+Intent (Original Requirement):
+A simple Express API. It should do the following:
+1. Look up a user by email address.
+2. Save user comments and return them.
+3. List the latest 50 posts together with the author's name.
+4. Allow only admins to delete users.

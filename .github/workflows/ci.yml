@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Aynı dal için eski çalışmaları iptal ederek gereksiz runner kullanımını önler.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    name: Tip Denetimi, Derleme ve Testler (Node ${{ matrix.node-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [22]
+
+    steps:
+      - name: Depoyu al
+        uses: actions/checkout@v4
+
+      - name: Node.js ${{ matrix.node-version }} kur
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - name: Bağımlılıkları temiz yükle
+        run: npm ci
+
+      - name: Tip denetimi
+        run: npm run typecheck
+
+      - name: Projeyi derle
+        run: npm run build
+
+      - name: Testleri çalıştır
+        run: npm test
